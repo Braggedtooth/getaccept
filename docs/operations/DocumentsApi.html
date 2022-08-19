@@ -1,0 +1,355 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  <h2><a name="createDocument"></a>createDocument</h2>
+  <hr>
+  <p></p>
+  <p>You must create a document to be able to send it to a recipient. When creating a document you can refer to previously uploaded files with file_id or you can choose to create a document and upload the files in on API post. You can only upload ONE file when including a file in the create document POST.  Use either file_ids parameter to use existing uploaded file(s), file_content to send the document as base64 encoded string or do a multipart post with file parameter.  All recipients must have either a valid e-mail or a mobile number.  All events are recorded using requestor IP address. You can override this using header CLIENT_IP containing the end-users public IP address.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Document"><a href="">Document</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">body</span>
+      <span class="param-type">Documents_body(Documents_body)</span>
+      
+      <p class="param-description">A JSON object containing document information</p>
+	  </li>
+  </ul>
+  <h2><a name="downloadDocument"></a>downloadDocument</h2>
+  <hr>
+  <p></p>
+  <p>Document file can always be downloaded but most likely you want to download it when it has status Signed.   You can select to receive a download-url or get the binary file.  The download URL is accessable 10 minutes after a request has been made.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}/download</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="inline_response_200_4"><a href="">inline_response_200_4</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">direct</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Return the binary file directly</p>
+	  </li>
+  </ul>
+  <h2><a name="getDocumentDetails"></a>getDocumentDetails</h2>
+  <hr>
+  <p></p>
+  <p>Get document details by specifying a document id.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Document"><a href="">Document</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+  </ul>
+  <h2><a name="listDocumentFields"></a>listDocumentFields</h2>
+  <hr>
+  <p></p>
+  <p>Get a list of fields for a document or template. Can be used both before and after a document has been signed.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}/fields</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Fields"><a href="">Fields</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+  </ul>
+  <h2><a name="listDocuments"></a>listDocuments</h2>
+  <hr>
+  <p></p>
+  <p>Get a list of available documents</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Documents"><a href="">Documents</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">filter</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Filter list on status</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">sort_by</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">How to sort results</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">sort_order</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Sort order of results</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">showteam</span>
+      <span class="param-type">Boolean</span>
+      
+      <p class="param-description">Include documents from team members</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">showall</span>
+      <span class="param-type">Boolean</span>
+      
+      <p class="param-description">Include all documents from entity</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">external_id</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">An external ID is a custom field which can contain a unique record identifier from a system outside of GetAccept</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">offset</span>
+      <span class="param-type">BigDecimal</span>
+      
+      <p class="param-description">Start list from record x until limit</p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">limit</span>
+      <span class="param-type">BigDecimal</span>
+      
+      <p class="param-description">Number of records to list</p>
+	  </li>
+  </ul>
+  <h2><a name="listRecipients"></a>listRecipients</h2>
+  <hr>
+  <p></p>
+  <p>Get a list of recipients for a specific document.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}/recipients</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Recipients"><a href="">Recipients</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+  </ul>
+  <h2><a name="sealDocument"></a>sealDocument</h2>
+  <hr>
+  <p></p>
+  <p>If you prefer to send the document manually you can use this method to seal the document. Do not use this method if you send the document automatically or if you use the send document method above.  This API call triggers the document seal action and can only be performed on documents with document_status &#x3D; draft. The method will return individual access/signing links for each recipient.  If document was created using self-sign option it will also be self-signed by the authenticated or specified user before sealing.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}/seal</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Recipients"><a href="">Recipients</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">body</span>
+      <span class="param-type">DocumentId_seal_body(DocumentId_seal_body)</span>
+      
+      <p class="param-description">An optional JSON object containing seal information</p>
+	  </li>
+  </ul>
+  <h2><a name="sendDocument"></a>sendDocument</h2>
+  <hr>
+  <p></p>
+  <p>When you send a document via GetAccept, we deliver an email to all recipients, each containing a unique, secured link. This API call triggers the document send action and can only be performed on documents with document_status &#x3D; draft. The document will be sent to recipients you provided when it was created.  If document was created using self-sign option it will also be self-signed by the authenticated or specified user before sending.</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/documents/{documentId}/send</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Document"><a href="">Document</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">documentId</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">Document ID</p>
+	  </li>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">body</span>
+      <span class="param-type">DocumentId_send_body(DocumentId_send_body)</span>
+      
+      <p class="param-description">An optional JSON object containing sending information</p>
+	  </li>
+  </ul>
+  <h2><a name="uploadDocument"></a>uploadDocument</h2>
+  <hr>
+  <p></p>
+  <p>You can upload one file at a time and get a file id. The file id is used to connect a file with a GetAccept document which is sent to recipients. If you want to upload mutliple files you run multiple POST. We only accept files up to 10 MB as default. Uploaded file need to be imported/added to a document within 48 hours after uploading.  We recommended you to upload PDF files in order to guarantee the same look when sent. Other file types can be converted, such as:  Mirosoft Office: doc, docx, xl, xls, xlsx, ppt, pptx Mac: numbers, key Images: jpg, jpeg, png Other: html, tex, csv</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/upload</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="inline_response_200_8"><a href="">inline_response_200_8</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">body</span>
+      <span class="param-type">Upload_body(Upload_body)</span>
+      
+      <p class="param-description">A JSON object containing the uploaded document information</p>
+	  </li>
+  </ul>
+  <h2><a name="uploadDocument"></a>uploadDocument</h2>
+  <hr>
+  <p></p>
+  <p>You can upload one file at a time and get a file id. The file id is used to connect a file with a GetAccept document which is sent to recipients. If you want to upload mutliple files you run multiple POST. We only accept files up to 10 MB as default. Uploaded file need to be imported/added to a document within 48 hours after uploading.  We recommended you to upload PDF files in order to guarantee the same look when sent. Other file types can be converted, such as:  Mirosoft Office: doc, docx, xl, xls, xlsx, ppt, pptx Mac: numbers, key Images: jpg, jpeg, png Other: html, tex, csv</p>
+  <h3 class="section">URL</h3>
+  <code>https://api.getaccept.com/v1/upload</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="inline_response_200_8"><a href="">inline_response_200_8</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">file</span>
+      <span class="param-type">byte[]</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+</div>

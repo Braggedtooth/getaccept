@@ -1,0 +1,135 @@
+
+<h2>Documents_body</h2>
+<ul class="parameter">
+  <li class="param-required-true">name : String
+    <br/>Enter a name of the document
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">template_id : String
+    <br/>Select a template to use for the sending
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">type : String
+    <br/>Set the type/category of the document
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>sales</dd>
+            <dd>introduction</dd>
+            <dd>hr</dd>
+            <dd>other</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">value : Integer
+    <br/>Value of deal or document
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">sender_id : String
+    <br/>Send from other user than authenticated
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">sender_email : String
+    <br/>Send from other email than authenticated user
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_signing_initials : Boolean
+    <br/>Sign document using recipient initials
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_reminder_sending : Boolean
+    <br/>Should automatic reminders be sent
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_automatic_sending : Boolean
+    <br/>If the document should be sent after creation
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">video_id : String
+    <br/>Select a video to use for the sending
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">attachments : List
+    <br/>Attachments
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_signing : Boolean
+    <br/>Should the document be sent for signing
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_sms_sending : Boolean
+    <br/>Should the document be sent to recipient mobile by text
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">file_ids : String
+    <br/>Comma-separated, unique file-ids received when uploading files
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">file_name : String
+    <br/>Filename of the document, with the extension. This will be helpful for converting different file-types.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">file_content : String
+    <br/>Base64 encoded file content
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">file_url : String
+    <br/>Url to document file. Documents must be public available for download
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_signing_forward : Boolean
+    <br/>Should recipients be able to transfer signature rights
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">recipients : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_signing_biometric : Boolean
+    <br/>Use handwritten signature
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">expiration_date : Date
+    <br/>Date and time when the document should expire
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">is_scheduled_sending : Boolean
+    <br/>Should the sending be scheduled for sending in the future
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">scheduled_sending_time : Date
+    <br/>Date and time when the document should be sent out
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">custom_fields : List
+    <br/>Custom field
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">external_id : String
+    <br/>External system ID for identification
+  </li>
+</ul>
